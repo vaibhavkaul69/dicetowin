@@ -27,11 +27,9 @@ body {
 }
 
 .wrapper {
-    width: 1000px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    position: relative;
+    margin:3rem auto;
     background-color: #fff;
     box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -60,6 +58,7 @@ body {
     margin-top: 20px;
     margin-bottom: 10px;
     position: relative;
+   
 }
 
 .player-score {
@@ -81,6 +80,7 @@ body {
     transform: scale(1.2);
  }
 
+ /*
 .active .player-name::after {
     content: "\2022";
     font-size: 47px;
@@ -90,7 +90,7 @@ body {
     right: 10px;
     
 }
-
+*/
 .player-current-box {
     background-color: #EB4D4D;
     color: #fff;
@@ -134,7 +134,7 @@ button:focus {
     outline: none;
 }
 
-span {
+button > span {
     color: #EB4D4D;
     display: inline-block;
     margin-right: 15px;
@@ -161,3 +161,4 @@ span {
 
 .winner { background-color: #f7f7f7; }
 .winner .player-name { font-weight: 300; color: #EB4D4D; }
+

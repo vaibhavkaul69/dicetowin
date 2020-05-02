@@ -9,6 +9,9 @@ GAME RULES:
 
 */
 
+console.log('Cookie storage :'+document.cookie);
+
+
 //Get the name of player-1 from DOM
 let player_1_name=document.getElementById('name-0');
 
@@ -30,16 +33,25 @@ let player_2_current_score=document.getElementById('current-1');
 //Get the wrapper class
 const main_wrapper=document.querySelector('.wrapper');
 
+//Get all the elements from DOM having Button as their tag name
+let allDOMButton=document.getElementsByTagName('button');
+
 //Define the current active player.
-//0- player-0
-//1- player-1
+//0- player-1
+//1- player-2
 let activePlayer=0;
 
 //Value for the current score initialized as 0;
-let currentValue=0;
+let currentValue_0=0,currentValue_1=0;
 
 //Initialize a default global value for both player-1(0) and player-2(1)
 let globalValue_0=0,globalValue_1=0;
+
+
+const enableRollAndHoldBtn=()=>{
+    allDOMButton[1].removeAttribute('disabled');
+    allDOMButton[2].removeAttribute('disabled');
+};
 
 //A function to initialize all the values.
 //Set all the parameters to 0.
@@ -48,26 +60,46 @@ const initializeGame=()=>{
     player_1_current_score.textContent=0;
     player_2_global_score.textContent=0;
     player_2_current_score.textContent=0;
+    globalValue_0=0;
+    globalValue_1=0;
+    currentValue_0=0;
+    currentValue_1=0
+    enableRollAndHoldBtn();
 };
+
+//Add an event listener to the New game Button
+//This will reset all the values
+const newGameBtn=document.querySelector('.btn-new');
+newGameBtn.addEventListener('click',function(){
+    initializeGame();
+   window.open('index.html','_top',true);
+});
 
 //Get the name of player-1 and player-2 from user.
 const  getPlayersName=()=>{
-    if(confirm('Want to enter custom names?')){
+    if(confirm('Want to enter custom names?'))
+    {
         player_1_name.textContent=prompt('Enter Player-1 Name :');
         player_2_name.textContent=prompt('Enter Player-2 Name :');
+
+        if( player_1_name.textContent.length<1 && player_2_name.textContent.length<1)
+        {
+            player_1_name.textContent='Player 1';
+            player_2_name.textContent='Player 2';
+        }
     }
-    else{
+    else
+    {
         return;
     }
 }
-
 //The fade in animation for dice images.
 const fadeIn=(image)=>
 {
     image.style.opacity = 0;
     let tick = ()=>
     {
-        image.style.opacity = +image.style.opacity + 0.1;
+        image.style.opacity=+image.style.opacity+0.1;
         if (+image.style.opacity < 1) 
         {
             (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 1000)
@@ -75,28 +107,35 @@ const fadeIn=(image)=>
     };
     tick();
 }
-
 //Check the active player while playing.
 //Here we check which player has .active class as a class member.
 //The player having the active class will have its current score
 //incremented here.
 const checkActiveClassPlayer=(diceNumber)=>{
-    if(main_wrapper.children[activePlayer].classList.contains('active')){
-        currentValue+=diceNumber;
-        return currentValue;
+    if(main_wrapper.children[activePlayer].classList.contains('active'))
+    {
+        if(activePlayer){
+            currentValue_1+=diceNumber;
+            console.log(`current value is ${currentValue_1} and dice number is ${diceNumber}`);
+            return currentValue_1;
+        }
+        else{
+            currentValue_0+=diceNumber;
+            console.log(`current value is ${currentValue_0} and dice number is ${diceNumber}`);
+            return currentValue_0;
+        }
+        
+    }
+    else{
+        return;
     }
 }
+    const disableRollAndHoldBtn=()=>{
+        allDOMButton[1].setAttribute('disabled','disabled');
+        allDOMButton[2].setAttribute('disabled','disabled');
+    };
 
-//When the window loads then call in game initializer function to resre all the values.
-window.onload=()=>{
-    initializeGame();
-    //getPlayersName();
-};
 
-//Add an event listener to the New game Button
-//This will reset all the values
-const newGameBtn=document.querySelector('.btn-new');
-newGameBtn.addEventListener('click',initializeGame);
 
 //Add an event listener to the Roll Dice button
 const rollDiceBtn=document.querySelector('.btn-roll');
@@ -105,12 +144,11 @@ const rollDiceBtn=document.querySelector('.btn-roll');
     //1. Generate a random number between 1-6
         //2. Change dice images.
             //3. Change the current score of the active player
-
 rollDiceBtn.addEventListener('click',()=>{
 
     //1. Generate a random Number.
     const diceNumber=parseInt((Math.random()*6)+1);
-    console.log(diceNumber);
+   //console.log(diceNumber);
 
      //2. Generate the dice image corresponding to the randomly generated dice number.
     let diceImage=document.querySelector('.dice-img');
@@ -118,14 +156,14 @@ rollDiceBtn.addEventListener('click',()=>{
         diceImage.src=`images/dice-${diceNumber}.png`;
         fadeIn(diceImage);
         console.log( diceImage.src);
-
           //3. Append the randomly generated number to the current score of the current active player.
         main_wrapper.children[activePlayer].children[2].children[1].textContent=checkActiveClassPlayer(diceNumber);
     }
     else{
         diceImage.src=`images/dice-${diceNumber}.png`;
         main_wrapper.children[activePlayer].children[2].children[1].textContent=0;
-        currentValue=0;
+        currentValue_0=0;
+        currentValue_1=0;
     }    
     
 });
@@ -146,13 +184,14 @@ const holdDiceBtn=document.querySelector('.btn-hold');
             //This will go on in vice-versa loop.
             if(activePlayer==0)
             {
+               
                 globalValue_0+=parseInt(main_wrapper.children[activePlayer].children[2].children[1].textContent);
                 main_wrapper.children[activePlayer].children[1].textContent= globalValue_0;
                 main_wrapper.children[activePlayer].children[2].children[1].textContent=0;
                 activePlayer=1;
                 main_wrapper.children[activePlayer].classList.toggle('active');
                 main_wrapper.children[activePlayer-1].classList.remove('active');
-
+                currentValue_0=0;
             }
             else
             {
@@ -162,8 +201,36 @@ const holdDiceBtn=document.querySelector('.btn-hold');
                 activePlayer=0;
                 main_wrapper.children[activePlayer].classList.toggle('active');
                 main_wrapper.children[activePlayer+1].classList.remove('active');
+                currentValue_1=0;
             }
-           
+
         });
 
+     
+/*
+    This set interval function keeps a check on the current game.
+    This set interval function after every 1 second check for the global score of both players.
+    If  at any second any player's global score becomes greater than or equal to 100.
+    Then that player wins and it appends winner in place of that person.
+*/
+setInterval(function(){
+    if(globalValue_0>=100){
+        disableRollAndHoldBtn();
+         main_wrapper.children[0].children[0].textContent='Winner';
+         main_wrapper.children[0].children[0].style.cssText=" font-weight: bolder;transform: scale(1.5);color:#0f9b0f;";
+         document.cookie=globalValue_0;
+    }
+    else if(globalValue_1>=100){
+        disableRollAndHoldBtn();
+         main_wrapper.children[1].children[0].textContent='Winner';
+         main_wrapper.children[1].children[0].style.cssText=" font-weight: bolder;transform: scale(1.5);color:#0f9b0f;";
+         document.cookie=globalValue_1;
+    }
+},100);
 
+
+//When the window loads then call in game initializer function to resre all the values.
+window.onload=()=>{
+    initializeGame();
+    getPlayersName();
+};
