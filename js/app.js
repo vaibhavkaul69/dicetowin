@@ -90,7 +90,7 @@ const checkActiveClassPlayer=(diceNumber)=>{
 //When the window loads then call in game initializer function to resre all the values.
 window.onload=()=>{
     initializeGame();
-    getPlayersName();
+    //getPlayersName();
 };
 
 //Add an event listener to the New game Button

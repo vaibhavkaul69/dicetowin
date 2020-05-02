@@ -128,18 +128,19 @@ button {
 }
 
 button:hover { font-weight: 600; }
-button:hover i { margin-right: 20px; }
+button:hover span { margin-right: 20px; }
 
 button:focus {
     outline: none;
 }
 
-i {
+span {
     color: #EB4D4D;
     display: inline-block;
     margin-right: 15px;
     font-size: 32px;
     line-height: 1;
+    font-weight: lighter;
     vertical-align: text-top;
     margin-top: -4px;
     transition: margin 0.3s;
