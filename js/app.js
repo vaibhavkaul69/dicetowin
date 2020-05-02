@@ -93,20 +93,7 @@ const  getPlayersName=()=>{
         return;
     }
 }
-//The fade in animation for dice images.
-const fadeIn=(image)=>
-{
-    image.style.opacity = 0;
-    let tick = ()=>
-    {
-        image.style.opacity=+image.style.opacity+0.1;
-        if (+image.style.opacity < 1) 
-        {
-            (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 1000)
-        }
-    };
-    tick();
-}
+
 //Check the active player while playing.
 //Here we check which player has .active class as a class member.
 //The player having the active class will have its current score
@@ -154,7 +141,6 @@ rollDiceBtn.addEventListener('click',()=>{
     let diceImage=document.querySelector('.dice-img');
     if(diceNumber>1){
         diceImage.src=`images/dice-${diceNumber}.png`;
-        fadeIn(diceImage);
         console.log( diceImage.src);
           //3. Append the randomly generated number to the current score of the current active player.
         main_wrapper.children[activePlayer].children[2].children[1].textContent=checkActiveClassPlayer(diceNumber);
