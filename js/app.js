@@ -115,7 +115,7 @@ rollDiceBtn.addEventListener('click',()=>{
      //2. Generate the dice image corresponding to the randomly generated dice number.
     let diceImage=document.querySelector('.dice-img');
     if(diceNumber>1){
-        diceImage.src=`dice-${diceNumber}.png`;
+        diceImage.src=`images/dice-${diceNumber}.png`;
         fadeIn(diceImage);
         console.log( diceImage.src);
 

@@ -5,38 +5,64 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
         <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-        <link type="text/css" rel="stylesheet" href="style.css">
-        
-        <title>Goti Heist</title>
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="images/favicon.png"/>
+        <title>DiceToWin</title>
     </head>
 
     <body>
+        <!--The main wrapper that contains all the contenst of body-->
         <div class="wrapper clearfix">
+
+            <!--Player-1 configuration-->
             <div class="player-0-panel active">
+
+                <!--Player-1 name-->
                 <div class="player-name" id="name-0">Player 1</div>
+
+                <!--Player-1 Global score-->
                 <div class="player-score" id="score-0">43</div>
+
                 <div class="player-current-box">
                     <div class="player-current-label">Current</div>
+
+                    <!--Player-1 Current Score-->
                     <div class="player-current-score" id="current-0">11</div>
                 </div>
             </div>
             
+            <!--Player-2 configuration-->
             <div class="player-1-panel">
+
+                <!--Player-2 name-->
                 <div class="player-name" id="name-1">Player 2</div>
+
+                  <!--Player-2 Global Score-->
                 <div class="player-score" id="score-1">72</div>
                 <div class="player-current-box">
                     <div class="player-current-label">Current</div>
+
+                      <!--Player-2 Current Score-->
                     <div class="player-current-score" id="current-1">0</div>
                 </div>
             </div>
-            
+                
+            <!--Button to start a new game-->
             <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
+
+             <!--Button to Roll the dice-->
             <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
+
+             <!--Button to Hold the game and pass the chance to next player-->
             <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
             
-            <img src="dice-5.png" alt="Dice" class="dice-img">
+            <!--Dice image-->
+            <img src="#" alt="" class="dice-img">
         </div>
-        
-        <script src="app.js"></script>
     </body>
+    <!--Game logic resides here.
+            The most precious file.
+            The Chamber of secrets
+        -->
+        <script src="js/app.js"></script>
 </html>
