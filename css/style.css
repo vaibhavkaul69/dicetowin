@@ -27,7 +27,7 @@ body {
 }
 
 .wrapper {
-    width: 100%;
+    width: 90%;
     position: relative;
     margin:3rem auto;
     background-color: #fff;
@@ -94,7 +94,7 @@ body {
 .player-current-box {
     background-color: #EB4D4D;
     color: #fff;
-    width: 40%;
+    width:100px;
     margin: 0 auto;
     padding: 12px;
     text-align: center;
@@ -123,12 +123,12 @@ button {
     font-size: 20px;
     text-transform: uppercase;
     cursor: pointer;
-    font-weight: 300;
+    font-weight: 900;
     transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover { font-weight: 600; }
-button:hover span { margin-right: 20px; }
+button:hover span { margin-right: 15px; }
 
 button:focus {
     outline: none;
@@ -137,9 +137,10 @@ button:focus {
 button > span {
     color: #EB4D4D;
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 10px;
     font-size: 32px;
     line-height: 1;
+    box-sizing: border-box;
     font-weight: lighter;
     vertical-align: text-top;
     margin-top: -4px;
@@ -162,3 +163,65 @@ button > span {
 .winner { background-color: #f7f7f7; }
 .winner .player-name { font-weight: 300; color: #EB4D4D; }
 
+@media only screen and (max-width:680px){
+
+        .player-0-panel,
+    .player-1-panel {
+        width: 100%;
+        float: left;
+        height: 300px;
+        padding: 80px;
+        position: relative;
+    }
+    .dice-img {
+        position: absolute;
+        left: 20%;
+        top: 42%;
+        height: 100px;
+        box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+    }
+    .btn-roll { 
+        top: 270px;
+    }
+    .btn-hold {
+         top: 315px;
+        }
+        .player-current-box {
+            background-color: #EB4D4D;
+            color: #fff;
+            position: absolute;
+            right:10px;
+            min-width:10%;
+            bottom:40px;
+            text-align: center;
+        }
+}
+
+@media only screen and (max-width:470px){
+     .dice-img {
+         left: 15%;
+          top: 45%;
+        height: 60px;
+    }
+    .player-name{
+        font-size: 30px;
+    }
+    .player-score {
+        font-size:60px;
+    }
+    .player-current-box {
+            bottom:50px;
+            width:25%;
+        }
+        .btn-roll { 
+        top: 270px;
+        left:60%;
+        font-size:15px;
+    }
+    .btn-hold {
+         top: 305px;
+         left:55%;
+         font-size:15px;
+        }
+
+}
