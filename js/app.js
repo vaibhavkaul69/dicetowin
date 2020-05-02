@@ -123,7 +123,7 @@ rollDiceBtn.addEventListener('click',()=>{
         main_wrapper.children[activePlayer].children[2].children[1].textContent=checkActiveClassPlayer(diceNumber);
     }
     else{
-        diceImage.src=`dice-${diceNumber}.png`;
+        diceImage.src=`images/dice-${diceNumber}.png`;
         main_wrapper.children[activePlayer].children[2].children[1].textContent=0;
         currentValue=0;
     }    
