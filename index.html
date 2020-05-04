@@ -3,10 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <meta rel="preload" href="images/back.jpg" as="image"/>
+        <meta rel="preload" href="audio/roll-dice-click-sound.mp3" as="audio"/>
+        <meta rel="preload" href="audio/sound_effect.mp3" as="audio"/>
+        <meta rel="preload" href="audio/player-win-audio.mp3" as="audio"/>
+        <meta rel="preload" href="audio/gameplay-audio.mp3" as="audio"/>
+        <meta rel="preload" href="audio/gameplay-intro-audio.mp3" as="audio"/>
         <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
         <link type="text/css" rel="stylesheet" href="css/style.css">
         <link rel="icon" href="images/favicon.png"/>
+        <link rel="manifest" href="manifest.json" />
+        <meta name="theme-color" content="#b92b27" />
+        <link rel="apple-touch-icon" href="favicon72x72.png" />
+        <link rel="apple-touch-icon" href="favicon96x96.png" />
+        <link rel="apple-touch-icon" href="favicon128x128.png" />
+        <link rel="apple-touch-icon" href="favicon144x144.png" />
+        <link rel="apple-touch-icon" href="favicon152x152.png" />
+        <link rel="apple-touch-icon" href="favicon192x192.png" />
+        <link rel="apple-touch-icon" href="favicon384x384.png" />
+        <link rel="apple-touch-icon" href="favicon512x512.png" />
+        <meta name="apple-mobile-web-app-status-bar" content="#b92b27" />
         <title>DiceToWin</title>
         <script>
             for(let i=1;i<=6;i++){
@@ -21,6 +37,22 @@
     </head>
 
     <body>
+        
+        <div class="allAudioElements">
+            <audio controls id="rollDiceSound">
+                <source src="audio/roll-dice-click-sound.mp3"  type="audio/mp3">
+            </audio>
+            <audio controls id="playerWins" >
+                <source src="audio/coffin-song.mp3" type="audio/mp3">
+            </audio>
+            <audio controls id="newGameIntro">
+                <source src="audio/game-intro-audio.mp3"  type="audio/mp3">
+            </audio>  
+            <audio controls id="passTheTurn">
+                <source src="audio/sound-effect.mp3"  type="audio/mp3">
+            </audio>  
+            
+        </div>
         <!--The main wrapper that contains all the contenst of body-->
         <div class="wrapper clearfix">
 
@@ -28,7 +60,7 @@
             <div class="player-0-panel active">
 
                 <!--Player-1 name-->
-                <div class="player-name" id="name-0">Player 1</div>
+            <div class="player-name" id="name-0" contenteditable="true" onkeypress="return playerNameEnter()">Player 1</div>
 
                 <!--Player-1 Global score-->
                 <div class="player-score" id="score-0"></div>
@@ -45,7 +77,7 @@
             <div class="player-1-panel">
 
                 <!--Player-2 name-->
-                <div class="player-name" id="name-1">Player 2</div>
+                <div class="player-name" id="name-1" contenteditable="true" onkeypress="return playerNameEnter()">Player 2</div>
 
                   <!--Player-2 Global Score-->
                 <div class="player-score" id="score-1"></div>
