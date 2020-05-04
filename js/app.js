@@ -77,7 +77,7 @@ newGameBtn.addEventListener('click',function(){
     initializeGame();
     setTimeout(function(){
         window.open('index.html','_top',true);
-    },2200);
+    },2500);
     playerWinsAudio.pause();
    gameIntroAudio.play();
 });
