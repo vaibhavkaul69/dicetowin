@@ -1,15 +1,6 @@
 
  //Check if the service worker exists in the navigator object.
- if ("serviceWorker" in navigator) 
- {
-     window.addEventListener("load", function() 
-     {
-     navigator.serviceWorker
-         .register("../service-worker.js")
-         .then(res => console.log("service worker registered"))
-         .catch(err => console.log("service worker not registered", err))
-     })
- }
+ 
 console.log('Cookie storage :'+document.cookie);
 
 //Get the name of player-1 from DOM
@@ -237,7 +228,7 @@ window.onload=()=>{
     initializeGame();
     
     setTimeout(()=>{
-        const gameRules="Rules of DiceToWin:\n1. Player 1 is the first player to roll the dice.\nYou can roll the dice by clicking on ths Roll Dice button on the right side.\n3. On every dice roll you will get a dice number which will be added in your Current score in the Red Box \n4. But if you get a 1 then your entire Current Score becomes 0 and its Next Player's turn.\n5. At any point of time you can Pass the turn to the other player and your Current Score gets added in the Global Score(The score written below the players name.)\n6. You can Pass your turn any number of times to the other player.\n7. When you pass the turn then your Existing Current Score gets added to Global score and the Current Score becomes 0.\n\nTHE PLAYER GETTING A SCORE OF HUNDRED OR MORE THAN HUNDRED FIRST WINS THE GAME ";
+        const gameRules="Rules of DiceToWin:\n\n1. Player 1 is the first player to roll the dice.\n\n2. You can roll the dice by clicking on ths Roll Dice button on the right side.\n\n3. On every dice roll you will get a dice number which will be added in your Current score in the Red Box \n\n4. But if you get a 1 then your entire Current Score becomes 0 and its Next Player's turn.\n\n5. At any point of time you can Pass the turn to the other player and your Current Score gets added in the Global Score(The score written below the players name.)\n\n6. You can Pass your turn any number of times to the other player.\n\n7. When you pass the turn then your Existing Current Score gets added to Global score and the Current Score becomes 0.\n\n\nTHE PLAYER GETTING A SCORE OF HUNDRED OR MORE THAN HUNDRED FIRST WINS THE GAME ";
         alert(gameRules);
     },1000);
     //When the page loads then after a minimum of 1 sec load the getPlayersName() function.

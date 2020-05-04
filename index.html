@@ -111,6 +111,18 @@
             <img src="" alt="" class="dice-img">
         </div>
     </body>
+    <script>
+        if ("serviceWorker" in navigator) 
+ {
+     window.addEventListener("load", function() 
+     {
+     navigator.serviceWorker
+         .register("service-worker.js")
+         .then(res => console.log("service worker registered"))
+         .catch(err => console.log("service worker not registered", err))
+     })
+ }
+    </script>
     <!--Game logic resides here.
             The most precious file.
             The Chamber of secrets
