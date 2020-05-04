@@ -2,11 +2,22 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta rel="preload" href="images/back.jpg" as="image"/>
         <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
         <link type="text/css" rel="stylesheet" href="css/style.css">
         <link rel="icon" href="images/favicon.png"/>
         <title>DiceToWin</title>
+        <script>
+            for(let i=1;i<=6;i++){
+                const metaTag=document.createElement('meta');
+                 metaTag.setAttribute('rel','preload');
+                 metaTag.setAttribute('href',`images/dice-${i}.png`);
+                 metaTag.setAttribute('as','image');
+                 document.querySelector('head').prepend(metaTag);
+            }
+            console.log(document.querySelector('head'));
+        </script>
     </head>
 
     <body>
@@ -22,7 +33,7 @@
                 <!--Player-1 Global score-->
                 <div class="player-score" id="score-0"></div>
 
-                <div class="player-current-box">
+                <div class="player-current-box player-0_box">
                     <div class="player-current-label">Current</div>
 
                     <!--Player-1 Current Score-->
@@ -38,7 +49,7 @@
 
                   <!--Player-2 Global Score-->
                 <div class="player-score" id="score-1"></div>
-                <div class="player-current-box">
+                <div class="player-current-box player-1_box">
                     <div class="player-current-label">Current</div>
 
                       <!--Player-2 Current Score-->

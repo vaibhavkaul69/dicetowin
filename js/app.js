@@ -11,7 +11,6 @@ GAME RULES:
 
 console.log('Cookie storage :'+document.cookie);
 
-
 //Get the name of player-1 from DOM
 let player_1_name=document.getElementById('name-0');
 
@@ -73,14 +72,15 @@ const newGameBtn=document.querySelector('.btn-new');
 newGameBtn.addEventListener('click',function(){
     initializeGame();
    window.open('index.html','_top',true);
+   
 });
 
 //Get the name of player-1 and player-2 from user.
 const  getPlayersName=()=>{
-    if(confirm('Want to enter custom names?'))
+    if(confirm('Want Custom Player Names?\nThe Custom Nick-Names Should be MAXIMUM of 6 Characters (Without Spaces)..\nElse the Remaining Portion of Name Will NOT Included.'))
     {
-        player_1_name.textContent=prompt('Enter Player-1 Name :');
-        player_2_name.textContent=prompt('Enter Player-2 Name :');
+        player_1_name.textContent=prompt('Enter Player-1 Nick-Name :').substr(0,6);
+        player_2_name.textContent=prompt('Enter Player-2 Nick-Name :').substr(0,6);
 
         if( player_1_name.textContent.length<1 && player_2_name.textContent.length<1)
         {
@@ -218,5 +218,5 @@ setInterval(function(){
 //When the window loads then call in game initializer function to resre all the values.
 window.onload=()=>{
     initializeGame();
-    getPlayersName();
+    setTimeout(getPlayersName,1000);
 };
