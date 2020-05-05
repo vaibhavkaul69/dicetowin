@@ -4,7 +4,6 @@ const assets = [
   'audio/coffin-song.mp3',
   'audio/game-intro-audio.mp3',
   'audio/roll-dice-click-sound.mp3',
-  'audio/sound-effect.mp3',
   'css/style.css',
   'images/back.jpg',
   'images/dice-1.png',

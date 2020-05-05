@@ -1,6 +1,5 @@
 
  //Check if the service worker exists in the navigator object.
- 
 console.log('Cookie storage :'+document.cookie);
 
 //Get the name of player-1 from DOM
@@ -36,8 +35,6 @@ const playerWinsAudio=document.getElementById('playerWins');
 //Get the roll the dice audio element from DOM
 const rollTheDiceAudio=document.getElementById('rollDiceSound');
 
-//Get the pass the turn audio element from DOM
-const passTurnAudio= document.getElementById('passTheTurn');
 
 //Define the current active player.
 //0- player-1
@@ -165,7 +162,6 @@ const holdDiceBtn=document.querySelector('.btn-hold');
         //2. updates the current score to the global score of hat player.
     
         holdDiceBtn.addEventListener('click',()=>{
-            passTurnAudio.play();
             //Here if the current active player is player-1 
             //then shift the active class to player-2 
            
@@ -226,27 +222,10 @@ setInterval(function(){
 //When the window loads then call in game initializer function to resre all the values.
 window.onload=()=>{
     initializeGame();
-    
     setTimeout(()=>{
         const gameRules="Rules of DiceToWin:\n\n1. Player 1 is the first player to roll the dice.\n\n2. You can roll the dice by clicking on ths Roll Dice button on the right side.\n\n3. On every dice roll you will get a dice number which will be added in your Current score in the Red Box \n\n4. But if you get a 1 then your entire Current Score becomes 0 and its Next Player's turn.\n\n5. At any point of time you can Pass the turn to the other player and your Current Score gets added in the Global Score(The score written below the players name.)\n\n6. You can Pass your turn any number of times to the other player.\n\n7. When you pass the turn then your Existing Current Score gets added to Global score and the Current Score becomes 0.\n\n\nTHE PLAYER GETTING A SCORE OF HUNDRED OR MORE THAN HUNDRED FIRST WINS THE GAME ";
         alert(gameRules);
     },1000);
-    //When the page loads then after a minimum of 1 sec load the getPlayersName() function.
-    setTimeout(()=>{
-        alert('You Can Give Custom Names to the Players :)\n The Name Should be Less Than 7 Characters !');
-    },1000);
-    
 };
 
-//Function to keep a check on players name.
-//It will return false and will not accept any character value
-//after the player's name length becomes grater than 7 characters (0-6).
-const playerNameEnter=()=>{
-    console.log(1);
-    if(player_1_name.textContent.length<=6 || player_2_name.textContent.length<=6){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
+

@@ -67,7 +67,7 @@ body {
 .player-score {
     text-align: center;
     font-size: 80px;
-    font-weight: 100;
+    font-weight: 900;
     color: #EB4D4D;
     margin-bottom: 130px;
 }
@@ -98,6 +98,7 @@ body {
     background-color: #EB4D4D;
     color: #fff;
     width:100px;
+    font-weight: 900;
     margin: 0 auto;
     padding: 12px;
     text-align: center;
