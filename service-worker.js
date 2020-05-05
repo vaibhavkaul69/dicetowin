@@ -1,4 +1,4 @@
-const diceGame = "DiceToWin-v6";
+const diceGame = "DiceToWin-v7";
 const assets = [
   '/',
   '/index.html',
