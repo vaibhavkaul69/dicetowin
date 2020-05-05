@@ -17,6 +17,7 @@
 
 body {
     height: 100vh;
+    background:linear-gradient(to right,#b92b27,#1565C0);
     background-image:  url('../images/back.jpg') ;
     background-size: cover;
     font-family: Lato;
