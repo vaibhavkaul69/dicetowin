@@ -36,7 +36,8 @@ body {
     overflow: hidden;
 }
 .allAudioElements{
-    display: none;
+   visibility: hidden;
+   height: 0px;;
 }
 
 .player-0-panel,

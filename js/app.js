@@ -1,5 +1,12 @@
 
+//Declare a global image object
+ let image=new Image();
 
+ //Store an array of all the image addresses
+ image=['images/dice-1.png','images/dice-2.png','images/dice-3.png','images/dice-4.png','images/dice-5.png','images/dice-6.png'];
+ console.log(image);
+
+ 
 //Get the name of player-1 from DOM
 let player_1_name=document.getElementById('name-0');
 
@@ -117,21 +124,20 @@ const rollDiceBtn=document.querySelector('.btn-roll');
 rollDiceBtn.addEventListener('click',()=>{
     rollTheDiceAudio.play();
     //1. Generate a random Number.
-    const diceNumber=parseInt((Math.random()*6)+1);
+    const diceNumber=parseInt((Math.random()*5)+1);
    //console.log(diceNumber);
 
      //2. Generate the dice image corresponding to the randomly generated dice number.
-    let diceImage=document.querySelector('.dice-img');
+    
+   const diceImage=document.querySelector('.dice-img');
     if(diceNumber>1){
-        diceImage.src=`images/dice-${diceNumber}.png`;
-        console.log( diceImage.src);
-
+        diceImage.src=image[diceNumber];
+        console.log( image[diceNumber]);
           //3. Append the randomly generated number to the current score of the current active player.
         main_wrapper.children[activePlayer].children[2].children[1].textContent=checkActiveClassPlayer(diceNumber);
-        console.log("Active Player when number greater than 1 :"+activePlayer);
     }
     else{
-        diceImage.src=`images/dice-${diceNumber}.png`;
+        diceImage.src=`images/dice-1.png`;
         main_wrapper.children[activePlayer].children[2].children[1].textContent=0;
         currentValue_0=0;
         currentValue_1=0;
@@ -221,27 +227,23 @@ setInterval(function(){
 window.onload=()=>{
     initializeGame();
     setTimeout(()=>{
-        const gameRules="Rules of DiceToWin:\n\n1. Player 1 is the first player to roll the dice.\n\n2. You can roll the dice by clicking on ths Roll Dice button on the right side.\n\n3. On every dice roll you will get a dice number which will be added in your Current score in the Red Box \n\n4. But if you get a 1 then your entire Current Score becomes 0 and its Next Player's turn.\n\n5. At any point of time you can Pass the turn to the other player and your Current Score gets added in the Global Score(The score written below the players name.)\n\n6. You can Pass your turn any number of times to the other player.\n\n7. When you pass the turn then your Existing Current Score gets added to Global score and the Current Score becomes 0.\n\n\nTHE PLAYER GETTING A SCORE OF HUNDRED OR MORE THAN HUNDRED FIRST WINS THE GAME ";
+        const gameRules="Rules of DiceToWin:\n1. Player 1 is the first player to roll the dice.\n2. You can roll the dice by clicking on ths Roll Dice button on the right side.\n3. On every dice roll you will get a dice number which will be added in your Current score in the Red Box \n4. But if you get a 1 then your entire Current Score becomes 0 and its Next Player's turn.\n5. At any point of time you can Pass the turn to the other player and your Current Score gets added in the Global Score(The score written below the players name.)\n6. You can Pass your turn any number of times to the other player.\n7. When you pass the turn then your Existing Current Score gets added to Global score and the Current Score becomes 0.\n\nTHE PLAYER GETTING A SCORE OF HUNDRED OR MORE THAN HUNDRED FIRST WINS THE GAME\n\n You Can Change the Player's name \n Length of Name < = 8 Characters ";
         alert(gameRules);
     },1000);
-    setTimeout(()=>{
-        if(confirm('Want Custom Players Nick-Name?\nName Should Maximum of 8 Characters')){
-            try{
+    setTimeout(()=>
+    {
+       try{
                 player_1_name.textContent=prompt('Enter the name of Player-1').substr(0,8).replace(' ','');
             player_2_name.textContent=prompt('Enter the name of Player-2').substr(0,8).replace(' ','');
             if(player_1_name.textContent.length<1 || player_2_name.textContent.length<1){
                 player_1_name.textContent='Player 1';
                 player_2_name.textContent='Player 2';
             }
-            }
+        }
             catch(error){
                 console.log('The Error is :'+error);
             }
-        }
-        else{
-            return;
-        }
+        
     },1000);
 };
-
 

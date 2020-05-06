@@ -35,19 +35,15 @@
     <body>
         
         <div class="allAudioElements">
-            <audio controls id="rollDiceSound">
+            <audio  id="rollDiceSound">
                 <source src="audio/roll-dice-click-sound.mp3"  type="audio/mp3">
             </audio>
-            <audio controls id="playerWins" >
+            <audio  id="playerWins" >
                 <source src="audio/coffin-song.mp3" type="audio/mp3">
             </audio>
-            <audio controls id="newGameIntro">
+            <audio  id="newGameIntro">
                 <source src="audio/game-intro-audio.mp3"  type="audio/mp3">
             </audio>  
-            <audio controls id="passTheTurn">
-                <source src="audio/sound-effect.mp3"  type="audio/mp3">
-            </audio>  
-            
         </div>
         <!--The main wrapper that contains all the contenst of body-->
         <div class="wrapper clearfix">
@@ -104,13 +100,13 @@
             </button>
             
             <!--Dice image-->
-            <img src="" alt="" class="dice-img">
+            <img src="images/dice-1.png" alt="" class="dice-img">
         </div>
     </body>
     <script>
-        
+    
         if ("serviceWorker" in navigator) 
- {
+        {
      window.addEventListener("load", function() 
      {
      navigator.serviceWorker
@@ -118,7 +114,8 @@
          .then(res => console.log("service worker registered"))
          .catch(err => console.log("service worker not registered", err))
      })
- }
+    }
+ 
 
     </script>
     <!--Game logic resides here.

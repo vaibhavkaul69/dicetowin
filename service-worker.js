@@ -1,4 +1,4 @@
-const diceGame = "DiceToWin-v7";
+const cacheName = "DiceToWin-v1";
 const assets = [
   '/',
   '/index.html',
@@ -28,7 +28,7 @@ const assets = [
 
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
-    caches.open(diceGame).then(cache => {
+    caches.open(cacheName).then(cache => {
       cache.addAll(assets)
       .catch(err=>console.log(err))
     })
@@ -41,7 +41,7 @@ self.addEventListener('activate',evt=>{
     .then(res=>{
       return Promise.all(
         res
-        .filter(element=>element!==diceGame)
+        .filter(element=>element!==cacheName)
         .map(key=>caches.delete(key))
       )
     })
