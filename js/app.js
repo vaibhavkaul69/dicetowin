@@ -1,11 +1,11 @@
 
  let diceImageObject={
-     1:'/images/dice-1.png',
-     2:'/images/dice-2.png',
-     3:'/images/dice-3.png',
-     4:'/images/dice-4.png',
-     5:'/images/dice-5.png',
-     6:'/images/dice-6.png'
+     1:'./images/dice-1.png',
+     2:'./images/dice-2.png',
+     3:'./images/dice-3.png',
+     4:'./images/dice-4.png',
+     5:'./images/dice-5.png',
+     6:'./images/dice-6.png'
  };
  console.log(diceImageObject[1]);
 //Get the name of player-1 from DOM
