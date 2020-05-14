@@ -1,12 +1,13 @@
 
-//Declare a global image object
- let image=new Image();
-
- //Store an array of all the image addresses
- image=['images/dice-1.png','images/dice-2.png','images/dice-3.png','images/dice-4.png','images/dice-5.png','images/dice-6.png'];
- console.log(image);
-
- 
+ let diceImageObject={
+     1:'/images/dice-1.png',
+     2:'/images/dice-2.png',
+     3:'/images/dice-3.png',
+     4:'/images/dice-4.png',
+     5:'/images/dice-5.png',
+     6:'/images/dice-6.png'
+ };
+ console.log(diceImageObject[1]);
 //Get the name of player-1 from DOM
 let player_1_name=document.getElementById('name-0');
 
@@ -131,13 +132,12 @@ rollDiceBtn.addEventListener('click',()=>{
     
    const diceImage=document.querySelector('.dice-img');
     if(diceNumber>1){
-        diceImage.src=image[diceNumber];
-        console.log( image[diceNumber]);
+        diceImage.src=diceImageObject[diceNumber];
           //3. Append the randomly generated number to the current score of the current active player.
         main_wrapper.children[activePlayer].children[2].children[1].textContent=checkActiveClassPlayer(diceNumber);
     }
     else{
-        diceImage.src=`images/dice-1.png`;
+        diceImage.src=diceImageObject[diceNumber];
         main_wrapper.children[activePlayer].children[2].children[1].textContent=0;
         currentValue_0=0;
         currentValue_1=0;
@@ -224,6 +224,7 @@ setInterval(function(){
 
 
 //When the window loads then call in game initializer function to resre all the values.
+
 window.onload=()=>{
     initializeGame();
     setTimeout(()=>{
@@ -246,4 +247,3 @@ window.onload=()=>{
         
     },1000);
 };
-

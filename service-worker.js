@@ -33,6 +33,7 @@ self.addEventListener("install", installEvent => {
       .catch(err=>console.log(err))
     })
   );
+  self.skipWaiting();
 });
 
 self.addEventListener('activate',evt=>{
