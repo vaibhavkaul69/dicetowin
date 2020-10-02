@@ -1,115 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta rel="preload" href="images/back.jpg" as="image"/>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
-        <link type="text/css" rel="stylesheet" href="css/style.css">
-        <link rel="icon" href="images/favicon.png"/>
-        <link rel="manifest" href="manifest.json" />
-        <meta name="theme-color" content="#b92b27" />
-        <link rel="apple-touch-icon" href="favicon72x72.png" />
-        <link rel="apple-touch-icon" href="favicon96x96.png" />
-        <link rel="apple-touch-icon" href="favicon128x128.png" />
-        <link rel="apple-touch-icon" href="favicon144x144.png" />
-        <link rel="apple-touch-icon" href="favicon152x152.png" />
-        <link rel="apple-touch-icon" href="favicon192x192.png" />
-        <link rel="apple-touch-icon" href="favicon384x384.png" />
-        <link rel="apple-touch-icon" href="favicon512x512.png" />
-        <meta name="apple-mobile-web-app-status-bar" content="#b92b27" />
-        <title>DiceToWin</title>
-    </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta rel="preload" href="images/back.jpg" as="image" />
+		<link rel="preload" as="image" href="images/dice-1.png" />
+		<link rel="preload" as="image" href="images/dice-2.png" />
+		<link rel="preload" as="image" href="images/dice-3.png" />
+		<link rel="preload" as="image" href="images/dice-4.png" />
+		<link rel="preload" as="image" href="images/dice-5.png" />
+		<link rel="preload" as="image" href="images/dice-6.png" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Lato:100,300,600"
+			rel="stylesheet"
+			type="text/css"
+		/>
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+		<link rel="icon" href="images/favicon.png" />
+		<link rel="manifest" href="manifest.json" />
+		<meta name="theme-color" content="#b92b27" />
+		<link rel="apple-touch-icon" href="favicon72x72.png" />
+		<link rel="apple-touch-icon" href="favicon96x96.png" />
+		<link rel="apple-touch-icon" href="favicon128x128.png" />
+		<link rel="apple-touch-icon" href="favicon144x144.png" />
+		<link rel="apple-touch-icon" href="favicon152x152.png" />
+		<link rel="apple-touch-icon" href="favicon192x192.png" />
+		<link rel="apple-touch-icon" href="favicon384x384.png" />
+		<link rel="apple-touch-icon" href="favicon512x512.png" />
+		<meta name="apple-mobile-web-app-status-bar" content="#b92b27" />
+		<title>DiceToWin</title>
+	</head>
 
-    <body>
-        
-        <div class="allAudioElements">
-            <audio  id="rollDiceSound">
-                <source src="audio/roll-dice-click-sound.mp3"  type="audio/mp3">
-            </audio>
-            <audio  id="playerWins" >
-                <source src="audio/coffin-song.mp3" type="audio/mp3">
-            </audio>
-            <audio  id="newGameIntro">
-                <source src="audio/game-intro-audio.mp3"  type="audio/mp3">
-            </audio>  
-        </div>
-        <!--The main wrapper that contains all the contenst of body-->
-        <div class="wrapper clearfix">
+	<body>
+		<div class="allAudioElements">
+			<audio id="rollDiceSound">
+				<source src="audio/roll-dice-click-sound.mp3" type="audio/mp3" />
+			</audio>
+			<audio id="playerWins">
+				<source src="audio/coffin-song.mp3" type="audio/mp3" />
+			</audio>
+			<audio id="newGameIntro">
+				<source src="audio/game-intro-audio.mp3" type="audio/mp3" />
+			</audio>
+		</div>
+		<!--The main wrapper that contains all the contenst of body-->
+		<div class="wrapper clearfix">
+			<!--Player-1 configuration-->
+			<div class="player-0-panel active">
+				<!--Player-1 name-->
+				<div class="player-name" id="name-0">Player 1</div>
 
-            <!--Player-1 configuration-->
-            <div class="player-0-panel active">
+				<!--Player-1 Global score-->
+				<div class="player-score" id="score-0">0</div>
 
-                <!--Player-1 name-->
-            <div class="player-name" id="name-0" >Player 1</div>
+				<div class="player-current-box player-0_box">
+					<div class="player-current-label">Current</div>
 
-                <!--Player-1 Global score-->
-                <div class="player-score" id="score-0">0</div>
+					<!--Player-1 Current Score-->
+					<div class="player-current-score" id="current-0">0</div>
+				</div>
+			</div>
 
-                <div class="player-current-box player-0_box">
-                    <div class="player-current-label">Current</div>
+			<!--Player-2 configuration-->
+			<div class="player-1-panel">
+				<!--Player-2 name-->
+				<div class="player-name" id="name-1">Player 2</div>
 
-                    <!--Player-1 Current Score-->
-                    <div class="player-current-score" id="current-0">0</div>
-                </div>
-            </div>
-            
-            <!--Player-2 configuration-->
-            <div class="player-1-panel">
+				<!--Player-2 Global Score-->
+				<div class="player-score" id="score-1">0</div>
+				<div class="player-current-box player-1_box">
+					<div class="player-current-label">Current</div>
 
-                <!--Player-2 name-->
-                <div class="player-name" id="name-1" >Player 2</div>
+					<!--Player-2 Current Score-->
+					<div class="player-current-score" id="current-1">0</div>
+				</div>
+			</div>
 
-                  <!--Player-2 Global Score-->
-                <div class="player-score" id="score-1">0</div>
-                <div class="player-current-box player-1_box">
-                    <div class="player-current-label">Current</div>
+			<!--Button to start a new game-->
+			<button class="btn-new">
+				<span>&circledast;</span>
+				New game
+			</button>
 
-                      <!--Player-2 Current Score-->
-                    <div class="player-current-score" id="current-1">0</div>
-                </div>
-            </div>
-                
-            <!--Button to start a new game-->
-            <button class="btn-new">
-                <span >&circledast;</span>
-                New game
-            </button>
+			<!--Button to Roll the dice-->
+			<button class="btn-roll">
+				<span>&clubsuit;</span>
+				Roll dice
+			</button>
 
-             <!--Button to Roll the dice-->
-            <button class="btn-roll">
-                <span >&clubsuit;</span>
-                Roll dice
-            </button>
+			<!--Button to Hold the game and pass the chance to next player-->
+			<button class="btn-hold">
+				<span>&rarr;</span>
+				Pass
+			</button>
 
-             <!--Button to Hold the game and pass the chance to next player-->
-            <button class="btn-hold">
-                <span >&rarr;</span>
-                Pass
-            </button>
-            
-            <!--Dice image-->
-            <img src="images/favicon.png" class="dice-img"/>
-        </div>
-    </body>
-    <script>
-    
-        if ("serviceWorker" in navigator) 
-        {
-     window.addEventListener("load", function() 
-     {
-     navigator.serviceWorker
-         .register("service-worker.js")
-         .then(res => console.log("service worker registered"))
-         .catch(err => console.log("service worker not registered", err))
-     })
-    }
- 
-
-    </script>
-    <!--Game logic resides here.
+			<!--Dice image-->
+			<img src="images/favicon.png" class="dice-img" />
+		</div>
+	</body>
+	<script>
+		if ("serviceWorker" in navigator) {
+			window.addEventListener("load", function () {
+				navigator.serviceWorker
+					.register("service-worker.js")
+					.then((res) => console.log("service worker registered"))
+					.catch((err) => console.log("service worker not registered", err));
+			});
+		}
+	</script>
+	<!--Game logic resides here.
             The most precious file.
             The Chamber of secrets
         -->
-        <script src="js/app.js"></script>
+	<script src="js/app.js"></script>
 </html>
